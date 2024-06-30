@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+:root {
+    --mb: #4285f4;
+    --mbl: #1E1E1E;
+}
+
+body {
+    background-color: var(--mbl);
+    color: #eee;
+}

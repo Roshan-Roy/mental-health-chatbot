@@ -1,0 +1,10 @@
+.container {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #303030;
+    align-self: flex-end;
+    max-width: 80%;
+}
+.container p{
+    line-height: 1.6;
+}
