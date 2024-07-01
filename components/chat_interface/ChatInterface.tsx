@@ -37,6 +37,7 @@ const ChatInterface = () => {
     const handleClear = () => {
         setHistory([])
         setPrompt("")
+        setDisabled(true)
         if (textArea.current) textArea.current.style.height = `${15 * 1.5}px`
     }
     const scrollToBottom = () => {
@@ -64,6 +65,7 @@ const ChatInterface = () => {
             setHistory(e => [...e, { role: "model", text: result.message }])
         } else {
             setPrompt(prompt)
+            setDisabled(false)
             setHistory(e => e.slice(0, e.length - 1))
             toast.custom(<Error />, { duration: 5000 })
         }
