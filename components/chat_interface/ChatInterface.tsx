@@ -7,6 +7,8 @@ import Model from "./model/Model"
 import styles from "./chatinterface.module.css"
 import { HiOutlinePencilAlt, HiArrowUp } from "react-icons/hi"
 import Skeleton from "./model/skeleton/Skeleton"
+import toast from "react-hot-toast"
+import Error from "./error/Error"
 
 type ChatType = {
     role: string;
@@ -20,7 +22,6 @@ const ChatInterface = () => {
     const [history, setHistory] = useState<ChatType[]>([])
     const [disabled, setDisabled] = useState(true)
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
 
     const textArea = useRef<HTMLTextAreaElement>(null)
     const chatArea = useRef<HTMLDivElement>(null)
@@ -51,9 +52,9 @@ const ChatInterface = () => {
         setPrompt("")
         setDisabled(true)
         setLoading(true)
-        setTimeout(() => scrollToBottom(),50)
+        setTimeout(() => scrollToBottom(), 50)
         if (textArea.current) textArea.current.style.height = `${15 * 1.5}px`
-        setHistory(e => [...e, { role: "user", text: prompt }])
+        setHistory(e => [...e, { role: "user", text: prompt.trim() }])
         const response = await fetch("/api/gemini", {
             method: "POST",
             body: JSON.stringify({ prompt: prompt.trim() })
@@ -62,7 +63,9 @@ const ChatInterface = () => {
         if (response.ok) {
             setHistory(e => [...e, { role: "model", text: result.message }])
         } else {
-            setError(true)
+            setPrompt(prompt)
+            setHistory(e => e.slice(0, e.length - 1))
+            toast.custom(<Error />, { duration: 5000 })
         }
         setLoading(false)
     }

@@ -1,0 +1,17 @@
+.container {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 100vh;
+    gap: 7px;
+    padding: 7px 21px 7px 7px;
+}
+.container p{
+    color: var(--mbl);
+    font-size: 13px;
+}
+.container svg{
+    color: red;
+    font-size: 23px;
+
+}

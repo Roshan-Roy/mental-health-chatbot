@@ -56,7 +56,6 @@ export const POST = async (req: Request) => {
             status: 200
         })
     } catch (e) {
-        console.log(e)
         return Response.json({
             error: "An error occurred"
         }, {

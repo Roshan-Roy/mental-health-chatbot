@@ -4,6 +4,7 @@ import { auth } from "@/auth"
 import { SessionProvider } from "next-auth/react"
 import "./global.css"
 import Navbar from "@/components/navbar/Navbar"
+import { Toaster } from "react-hot-toast"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Navbar />
+          <Toaster containerStyle={{ top: 70 }}/>
           {children}
         </body>
       </html>
