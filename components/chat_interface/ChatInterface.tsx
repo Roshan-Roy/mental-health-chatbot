@@ -82,9 +82,9 @@ const ChatInterface = () => {
             </div>
             <div className={styles.chat_bg} ref={chatArea}>
                 <div className={styles.container}>
-                    {history.map(e => {
-                        if (e.role === "user") return <User text={e.text} />
-                        return <Model text={e.text} />
+                    {history.map((e,i) => {
+                        if (e.role === "user") return <User key={Math.random().toString(36).slice(2, 9)} text={e.text} />
+                        return <Model key={Math.random().toString(36).slice(2, 9)} text={e.text} />
                     })}
                     {loading && <Skeleton />}
                 </div>
