@@ -1,4 +1,4 @@
-export const maxDuration = 100
+export const maxDuration = 60
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai"
 import prompts from "@/prompts/data.json"
 
