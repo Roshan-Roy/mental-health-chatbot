@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { useSession } from "next-auth/react"
 import User from "./user/User"
 import Model from "./model/Model"
 import styles from "./chatinterface.module.css"
@@ -16,14 +15,13 @@ type ChatType = {
 }
 
 const ChatInterface = () => {
-    const session = useSession()
-
     const [prompt, setPrompt] = useState("")
     const [history, setHistory] = useState<ChatType[]>([])
     const [disabled, setDisabled] = useState(true)
     const [loading, setLoading] = useState(false)
 
     const textArea = useRef<HTMLTextAreaElement>(null)
+    let scrollHeight = useRef<number>(0)
     const chatArea = useRef<HTMLDivElement>(null)
 
     const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -31,8 +29,8 @@ const ChatInterface = () => {
         if (e.target.value.trim() === "") setDisabled(true)
         else setDisabled(false)
         if (textArea.current) textArea.current.style.height = `${15 * 1.5}px`
-        const scrollHeight = textArea.current?.scrollHeight
-        if (textArea.current) textArea.current.style.height = `${scrollHeight}px`
+        scrollHeight.current = textArea.current?.scrollHeight as number
+        if (textArea.current) textArea.current.style.height = `${scrollHeight.current}px`
     }
     const handleClear = () => {
         setHistory([])
@@ -66,7 +64,9 @@ const ChatInterface = () => {
         } else {
             setPrompt(prompt)
             setDisabled(false)
+            if (textArea.current) textArea.current.style.height = `${scrollHeight.current}px`
             setHistory(e => e.slice(0, e.length - 1))
+            toast.remove()
             toast.custom(<Error />, { duration: 5000 })
         }
         setLoading(false)
