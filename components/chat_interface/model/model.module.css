@@ -1,10 +1,13 @@
-.container{
+.container {
     border-radius: 10px;
     padding: 25px 0;
+    white-space: pre-line;
 }
-.container h5{
+
+.container h5 {
     margin-bottom: 7px;
 }
-.container p{
+
+.container p {
     line-height: 1.6;
 }
