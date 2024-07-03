@@ -41,7 +41,6 @@ const generationConfig = {
 
 export const POST = async (req: Request) => {
     const session = await auth()
-    console.log(session)
     const body = await req.json()
     try {
         const parts = [
