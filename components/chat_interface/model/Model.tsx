@@ -6,7 +6,7 @@ const Model = ({ text }: {
     return (
         <div className={styles.container}>
             <h5>Sophia</h5>
-            <p className={styles.content}>{text}</p>
+            <p className={styles.content}>{text.replace(/\*/g, "")}</p>
         </div>
     )
 }

@@ -17,7 +17,6 @@ const Navbar = () => {
         <div className={styles.container}>
           <h3><Link href="/">Sophia</Link></h3>
           <div className={styles.icons_container}>
-            {session && <Link className={styles.icons} href="/settings"><LuSettings /></Link>}
             <Link className={styles.icons} href="/about"><LuInfo /></Link>
             {session && <User
               name={session?.user?.name as string}
