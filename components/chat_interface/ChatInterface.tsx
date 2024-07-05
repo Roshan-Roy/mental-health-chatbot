@@ -8,6 +8,7 @@ import { HiOutlinePencilAlt, HiArrowUp } from "react-icons/hi"
 import Skeleton from "./model/skeleton/Skeleton"
 import toast from "react-hot-toast"
 import Error from "./error/Error"
+import { useSession } from "next-auth/react"
 
 type ChatType = {
     role: string;
@@ -15,6 +16,7 @@ type ChatType = {
 }
 
 const ChatInterface = () => {
+    const { data: session } = useSession()
     const [prompt, setPrompt] = useState("")
     const [history, setHistory] = useState<ChatType[]>([])
     const [disabled, setDisabled] = useState(true)
@@ -82,6 +84,7 @@ const ChatInterface = () => {
             </div>
             <div className={styles.chat_bg} ref={chatArea}>
                 <div className={styles.container}>
+                    {history.length === 0 && <h1>Hello, {session?.user?.name?.split(" ")[0]} <br />What's on your mind today?</h1>}
                     {history.map((e, i) => {
                         if (e.role === "user") return <User key={Math.random().toString(36).slice(2, 9)} text={e.text} />
                         return <Model key={Math.random().toString(36).slice(2, 9)} text={e.text} />
