@@ -1,12 +1,16 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { auth } from "@/auth"
 import { SessionProvider } from "next-auth/react"
 import "./global.css"
 import Navbar from "@/components/navbar/Navbar"
 import { Toaster } from "react-hot-toast"
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins(
+  {
+    weight: "400",
+    subsets: ['latin'],
+  });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,9 +26,9 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={poppins.className}>
           <Navbar />
-          <Toaster containerStyle={{ top: 70 }}/>
+          <Toaster containerStyle={{ top: 70 }} />
           {children}
         </body>
       </html>
