@@ -1,0 +1,53 @@
+.wrapper {
+    height: calc(100dvh - 110px);
+    padding-top: 5px;
+}
+
+.container {
+    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sec1 {
+    height: 150px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    flex: 1;
+}
+
+.sec2 h1 {
+    font-size: 45px;
+    color: var(--mb);
+}
+
+.sec2 h3 {
+    margin: 15px 0 7px 0;
+    line-height: 1.5;
+    width: 95%;
+}
+
+.intro {
+    line-height: 1.5;
+    color: #bbb;
+    width: 95%;
+}
+.sec2 a{
+    text-decoration: none; 
+}
+.chat {
+    margin-top: 20px;
+    background-color:var(--mb);
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px 12px 15px;
+    border-radius: 10px 20px 20px 10px;
+    font-weight: 600;
+    color: #eee;
+}

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import styles from "./navbar.module.css"
 import { useSession } from "next-auth/react"
-import { LuInfo, LuSettings } from "react-icons/lu"
+import { LuInfo } from "react-icons/lu"
 import User from "./user/User"
 import { usePathname } from "next/navigation"
 import Chat from "./chat/Chat"

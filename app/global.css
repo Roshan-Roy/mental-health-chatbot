@@ -4,8 +4,9 @@
     outline: none;
     box-sizing: border-box;
 }
+
 :root {
-    --mb: #4285f4;
+    --mb: #4285F4;
     --mbl: #1E1E1E;
 }
 
