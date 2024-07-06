@@ -16,7 +16,7 @@ const page = async () => {
         <div className={styles.sec2}>
           <h1>Sophia</h1>
           <h3>Your dedicated companion for mental health</h3>
-          <p className={styles.intro}>I'm here to support you on your journey towards a healthier mind</p>
+          <p className={styles.intro}>I&apos;m here to support you on your journey towards a healthier mind</p>
           {session ? <Link href="/chat">
             <div className={styles.chat}>
               <p>Chat</p>
