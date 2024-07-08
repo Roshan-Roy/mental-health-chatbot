@@ -3,6 +3,15 @@
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 import { signIn } from "next-auth/react"
 import styles from "./googlesigninbtn.module.css"
+import { Poppins } from "next/font/google"
+
+const poppins = Poppins(
+    {
+      weight: "600",
+      subsets: ['latin'],
+    }
+  );
+  
 
 const GoogleSigninBtn = () => {
     const handleClick = () => {
@@ -11,7 +20,7 @@ const GoogleSigninBtn = () => {
         })
     }
     return (
-        <button className={styles.btn} onClick={handleClick}>Sign In</button>
+        <button className={`${poppins.className} ${styles.btn}`} onClick={handleClick}>Sign In</button>
     )
 }
 
