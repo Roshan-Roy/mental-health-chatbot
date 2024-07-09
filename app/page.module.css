@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 1200px;
 }
 
 .sec1 {
@@ -37,12 +38,14 @@
     width: 95%;
     font-size: 18px;
 }
-.sec2 a{
-    text-decoration: none; 
+
+.sec2 a {
+    text-decoration: none;
 }
+
 .chat {
     margin-top: 20px;
-    background-color:var(--mb);
+    background-color: var(--mb);
     width: 60%;
     display: flex;
     justify-content: space-between;
@@ -51,4 +54,54 @@
     border-radius: 10px 20px 20px 10px;
     font-weight: 600;
     color: #eee;
+    max-width: 200px;
+}
+
+@media only screen and (min-width: 700px) {
+    .sec2 h1 {
+        font-size: 60px;
+        color: var(--mb);
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .container {
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .sec1 {
+        height: 450px;
+        border-radius: 40px;
+    }
+
+    .sec2 {
+        flex: 1;
+    }
+
+    .sec2 h1 {
+        font-size: 70px;
+    }
+
+    .sec2 h3 {
+        font-size: 20px;
+        width: 90%;
+        margin: 12px 0 15px 0;
+    }
+
+    .intro {
+        font-size: 20px;
+        width: 85%;
+    }
+
+    .chat {
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .sec2 h1 {
+        font-size: 90px;
+    }
 }
