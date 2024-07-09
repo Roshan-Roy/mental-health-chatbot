@@ -1,6 +1,6 @@
-.btn{
+.btn {
     margin-top: 20px;
-    background-color:var(--mb);
+    background-color: var(--mb);
     width: 60%;
     display: flex;
     justify-content: space-between;
@@ -11,4 +11,11 @@
     border: none;
     font-size: 16px;
     max-width: 200px;
+}
+
+@media only screen and (min-width: 900px) {
+    .btn {
+        margin-top: 25px;
+    }
+
 }
