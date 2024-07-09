@@ -20,3 +20,8 @@ button,
 a {
     cursor: pointer;
 }
+
+::backdrop{
+    background-color: black;
+    opacity: 0.6;
+}
