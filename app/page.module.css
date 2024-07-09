@@ -19,6 +19,7 @@
     border-radius: 20px;
     position: relative;
     flex: 1;
+    background-color: #444;
 }
 
 .sec2 h1 {
